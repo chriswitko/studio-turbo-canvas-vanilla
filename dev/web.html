@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>&lt;my-element> Demo</title>
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/lit/polyfill-support.js"></script>
+  <script type="module" src="/my-element.js"></script>
+  <script src="/dev/canvas-renderer.js"></script>
+  <script type="module">
+    import "https://1.www.s81c.com/common/carbon/web-components/version/v2.0.1/checkbox.min.js";
+  </script>
+
+  <style>
+    .canvas {
+      position: relative;
+      width: 80vw;
+      height: 80vh;
+
+      background-color: lightgray;
+      filter: drop-shadow(0 0 0.75rem gray);
+    }
+  </style>
+</head>
+
+<body
+  style="display: flex; flex-direction: column; justify-items: center; align-items: center; width: 100vw; height: 100vh;">
+  <div id="canvas" class="canvas"></div>
+
+  <script>
+    // Usage in Vanilla JS
+    const renderer = new ElementRenderer();
+    const container = document.getElementById("canvas");
+
+    const elementsJSON = [
+      { type: 'div', props: { className: 'myClass', innerHTML: 'Hello', style: { x: 10, y: 10 } } },
+      { type: 'my-element', props: { className: 'myClass', innerHTML: 'Hello', style: { x: 50, y: 50 } } },
+      {
+        type: "cds-checkbox",
+        props: {
+          className: "myClass",
+          innerHTML: "Hello",
+          style: { x: 100, y: 300 },
+        },
+      },
+    ];
+
+    renderer.renderElements(elementsJSON, container, "Vanilla");
+
+  </script>
+</body>
+
+</html>

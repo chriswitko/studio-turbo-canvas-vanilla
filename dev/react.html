@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>&lt;my-element> and React Demo</title>
+  <!-- Load web components loader -->
+  <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../node_modules/lit/polyfill-support.js"></script>
+  <script type="module" src="../my-element.js"></script>
+
+  <!-- Load React and ReactDOM from CDN -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+
+  <!-- <script crossorigin src="https://unpkg.com/@lit/react@1.0.0/index.js"></script> -->
+  <script>
+    import { LitElement, html, css, createComponent } from 'lit';
+  </script>
+
+  <!-- Load Babel for JSX Transformation -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    p {
+      border: solid 1px blue;
+      padding: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div> <!-- React will attach here -->
+  <!-- <my-element>
+    <p>This is child content for web component</p>
+  </my-element> -->
+
+  <!-- React code -->
+  <script type="text/babel">
+    const { useState } = React;
+
+    const MyElementComponent = createComponent({
+      tagName: 'my-element',
+      elementClass: MyElement,
+      react: React,
+      events: {
+        onactivate: 'activate',
+        onchange: 'change',
+      },
+    });
+
+    function App() {
+      const [count, setCount] = useState(0);
+      return (
+        <div>
+          <MyElementComponent
+            active={isActive}
+            onactivate={(e) => setIsActive(e.active)}
+            onchange={handleChange}
+          />
+          <h1>Hello from React!</h1>
+          <p>Counter: {count}</p>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById("root"));
+  </script>
+</body>
+
+</html>
