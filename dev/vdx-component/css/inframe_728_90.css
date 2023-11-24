@@ -1,0 +1,17 @@
+#ad-unit {
+    width: 728px;
+    height: 90px;
+}
+
+#ad-header {
+    display: none;
+    width: 100%;
+    height: 0px;
+    background: #ccc;
+    border-bottom: 1px solid #0ab;
+}
+
+#ad-body {
+    width: 100%;
+    height: 90px;
+}

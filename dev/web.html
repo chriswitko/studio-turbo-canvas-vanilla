@@ -8,10 +8,10 @@
   <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   <script src="../node_modules/lit/polyfill-support.js"></script>
   <script type="module" src="/my-element.js"></script>
-  <script src="/dev/canvas-renderer.js"></script>
   <script type="module">
     import "https://1.www.s81c.com/common/carbon/web-components/version/v2.0.1/checkbox.min.js";
   </script>
+  <link rel="stylesheet" type="text/css" href="./vdx-component/css/desktop_970_546.css" id="pagesheet" />
 
   <style>
     .canvas {
@@ -19,24 +19,54 @@
       width: 80vw;
       height: 80vh;
 
-      background-color: lightgray;
       filter: drop-shadow(0 0 0.75rem gray);
+
+      --dot-bg: lightgray;
+      --dot-color: #000000;
+      --dot-size: 1px;
+      --dot-space: 22px;
+      background:
+        linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        var(--dot-color);
+
+
+    }
+
+    .canvas-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+      height: 10vh;
+
     }
   </style>
 </head>
 
 <body
   style="display: flex; flex-direction: column; justify-items: center; align-items: center; width: 100vw; height: 100vh;">
+  <h1>Canvas Renderer</h1>
+  <div class="canvas-actions">
+    <button id="loadGalleryButton">Load VDX Components</button>
+    <button id="loadGalleryWithNewImageButton">Load VDX Components with New Image</button>
+    <button id="removeGalleryButton">Remove VDX Components</button>
+  </div>
   <div id="canvas" class="canvas"></div>
 
-  <script>
-    // Usage in Vanilla JS
-    const renderer = new ElementRenderer();
-    const container = document.getElementById("canvas");
 
-    const elementsJSON = [
-      { type: 'div', props: { className: 'myClass', innerHTML: 'Hello', style: { x: 10, y: 10 } } },
-      { type: 'my-element', props: { className: 'myClass', innerHTML: 'Hello', style: { x: 50, y: 50 } } },
+  <script src="./canvas-view.js"></script>
+  <script src="./canvas-renderer.js"></script>
+  <script async src="./vdx-component/vdx-components.js"></script>
+  <script>
+    window.canvasContainer = document.getElementById("canvas");
+
+    window.renderer = new ElementRenderer();
+
+    window.elementsJSON = [
+      { type: 'div', props: { className: 'myClass', innerHTML: 'Text Div', style: { x: 10, y: 10 } } },
+      { type: 'my-element', props: { className: 'myClass', innerHTML: 'Hello', style: { x: 50, y: 550 } } },
       {
         type: "cds-checkbox",
         props: {
@@ -44,12 +74,14 @@
           innerHTML: "Hello",
           style: { x: 100, y: 300 },
         },
-      },
+      }
     ];
 
-    renderer.renderElements(elementsJSON, container, "Vanilla");
 
+    window.renderer.renderElements(window.elementsJSON, window.canvasContainer, "Vanilla");
   </script>
+
+
 </body>
 
 </html>

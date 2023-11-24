@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>desktop_970_546</title>
+  <link rel="stylesheet" type="text/css" href="css/site_global.css" />
+  <link rel="stylesheet" type="text/css" href="css/desktop_970_546.css" id="pagesheet" />
+</head>
+
+<body>
+
+  <div id="page">
+    <div id="ad-unit">
+      <div id="ad-header"></div>
+      <div id="ad-body">
+        <div class="ad-full-fit" title="VDXC_gallery1"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.designerConfig = {
+      components: [
+        {
+          name: "gallery",
+          props: {
+            preventRender: false,
+            placeholderId: "gallery1",
+            collection: {
+              contents: [
+                {
+                  imageUrl: "images/gal_img1.jpg",
+                  hasLandingUrl: true,
+                },
+                {
+                  imageUrl: "images/gal_img2.jpg",
+                  hasLandingUrl: true,
+                },
+                {
+                  imageUrl: "images/gal_img3.jpg",
+                  hasLandingUrl: true,
+                },
+                {
+                  imageUrl: "images/gal_img4.jpg",
+                  hasLandingUrl: true,
+                },
+              ],
+              arrange: "horizontal",
+              imageFit: "cover",
+              transition: "chain",
+              duration: 1000,
+              cycle: true,
+            },
+            triggerNavigation: {
+              enabled: true,
+              arrange: "none",
+              align: "start",
+              overflow: "fade",
+              size: "20px",
+              outlineNormal: "1px solid #333",
+              outlineActive: "3px solid #f00",
+              commonStyle: {
+                normal: "background-color:rgba(255, 255, 255, 0.25)",
+                hover: "background-color:rgba(35, 70, 255, 0.5)",
+                active: "background-color:rgba(35, 70, 255, 1)",
+              },
+              separateStyle: [
+                {
+                  normal: "top:10px; left:10px; background:#f00 center/cover url(images/gal_t1.jpg)",
+                },
+                {
+                  normal: "top:30px; left:50px; background:#ff0 center/cover url(images/gal_t2.jpg)",
+                },
+                {
+                  normal: "top:50px; left:90px; background:#0f0 center/cover url(images/gal_t3.jpg)",
+                },
+                {
+                  normal: "top:70px; left:130px; background:#00f center/cover url(images/gal_t4.jpg)",
+                },
+              ],
+            },
+            arrowNavigation: {
+              enabled: true,
+              arrange: "horizontal",
+              size: "60px 60px",
+              color: "#29ADE4",
+              margin: "0 20px",
+              // imagePrev: "images/arrow_left.png",
+              // imageNext: "images/arrow_right.png",
+              commonStyle: {
+                normal: "background-color:rgba(255, 255, 255, 0.5); opacity:0.9; ",
+                hover: "background-color:rgba(0, 0, 0, 0.25); opacity:1; ",
+                disabled: "background-color:rgba(0, 0, 0, 0.25); opacity:0.5; ",
+              },
+            },
+            swipeNavigation: {
+              enabled: true,
+              axis: "horizontal",
+            },
+            timer: {
+              duration: 3000,
+              resume: 2000,
+            },
+            controls: {
+              enabled: true,
+              muteToggle: true,
+              playToggle: false,
+            },
+            progress: {
+              enabled: true,
+              theme: "circular",
+              position: "tr",
+              width: 4,
+              roundCap: true,
+              color: "#FFFFFF",
+              bgColor: "#4460DE",
+              btnColor: "#FFFFFF",
+              size: 80,
+              bgSize: 90,
+            },
+          },
+          callbacks: {
+            onClick: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onClick(${event.index})`, event);
+              // Expo.designerAPI.fireDynamicPixel("gallery_slide_click_" + event.slide, [{"eventName":"clickLive", "multi":true}]);
+              // Expo.designerAPI.openUrl("http://exponential.com/", "gallery_slide_click_" + event.slide);
+              // Expo.designerAPI.pause();
+            },
+            onChange: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onChange(${event.index})`, event);
+              // switch(event.slideTo) {
+              //   case 1:
+              //     Expo.designerAPI.firePixel("ImageGallery_Slide1", [{"eventName":"intLive", "multi":true}]);
+              //     break;
+              //   case 2:
+              //     Expo.designerAPI.firePixel("ImageGallery_Slide2", [{"eventName":"intLive", "multi":true}]);
+              //     break;
+              //   case 3:
+              //     Expo.designerAPI.firePixel("ImageGallery_Slide3", [{"eventName":"intLive", "multi":true}]);
+              //     break;
+              //   case 4:
+              //     Expo.designerAPI.firePixel("ImageGallery_Slide4", [{"eventName":"intLive", "multi":true}]);
+              //     break;
+              // }
+            },
+            onPlayPauseClick: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onPlayPauseClick(${event.index})`, event);
+              // Expo.designerAPI.firePixel("ImageGallery_playpause_click", [{"eventName":"intLive", "multi":true}]);
+            },
+            onTriggerClick: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onTriggerClick(${event.index})`, event);
+              // Expo.designerAPI.firePixel("ImageGallery_trigger_click", [{"eventName":"intLive", "multi":true}]);
+            },
+            onPrevArrowClick: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onPrevArrowClick(${event.index})`, event);
+              // Expo.designerAPI.firePixel("ImageGallery_left_arrow_click", [{"eventName":"intLive", "multi":true}]);
+            },
+            onNextArrowClick: function (Expo, event) {
+              console.info(`design-config /// Gallery.callbacks.onNextArrowClick(${event.index})`, event);
+              // Expo.designerAPI.firePixel("ImageGallery_right_arrow_click", [{"eventName":"intLive", "multi":true}]);
+            },
+          },
+        },
+
+      ]
+    }
+  </script>
+
+  <script src="./vdx-components.js" onload="window.postMessage(JSON.stringify({event:'complete'}), '*')"></script>
+
+</body>
+
+</html>

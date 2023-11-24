@@ -1,3 +1,6 @@
+// Additional libraries: https://daybrush.com/moveable/
+// Remote components: https://github.com/Yahweasel/libav.js
+// Exisitng Canvas examples: https://github.com/webstudio-is/webstudio
 class ElementRenderer {
   constructor() {
     this.createElement = this.createElement.bind(this);
@@ -37,6 +40,9 @@ class ElementRenderer {
           element.style.position = 'absolute';
           element.style.left = `${jsonElement.props.style.x}px`;
           element.style.top = `${jsonElement.props.style.y}px`;
+          if (jsonElement.props.style.zIndex !== undefined) {
+            element.style.zIndex = jsonElement.props.style.zIndex;
+          }
         } else {
           element[key] = jsonElement.props[key];
         }
